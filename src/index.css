@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", "Cabinet Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-lime-brand: #c1d202;
+  --color-robin-green: #c1d202;
+  --color-robin-dark: #000000;
+  --color-robin-slate: #1e2124;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-robin-dark);
+    color: #f3f4f6;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Custom animations and scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2124;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00C805;
+}

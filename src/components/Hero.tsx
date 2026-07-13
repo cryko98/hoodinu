@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Copy, Check, TrendingUp, ShieldAlert, ArrowDown } from 'lucide-react';
+import { Copy, Check, TrendingUp, ShieldAlert, ArrowDown, Send } from 'lucide-react';
+
+const XIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 interface HeroProps {
   contractAddress: string;
@@ -101,13 +107,25 @@ export default function Hero({ contractAddress }: HeroProps) {
                 </div>
 
                 {/* Main Action CTAs */}
-                <div className="pt-2">
+                <div className="pt-2 flex gap-3">
                   <a
-                    href="#portfolio"
-                    className="flex items-center justify-center space-x-2 bg-black hover:bg-black/90 text-lime-brand font-bold py-3.5 px-4 rounded-xl shadow-lg transition-all active:scale-95 text-sm w-full"
+                    href="https://t.me/hoodinucommunity"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 flex items-center justify-center space-x-2 bg-black hover:bg-black/95 text-lime-brand hover:text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition-all active:scale-95 text-sm"
+                    title="Telegram"
                   >
-                    <TrendingUp className="h-4 w-4 animate-bounce" />
-                    <span>Open Interactive Live Trade Sim</span>
+                    <Send className="h-4 w-4" />
+                    <span>Telegram</span>
+                  </a>
+                  <a
+                    href="https://x.com/i/communities/2038276050287993288"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-14 flex items-center justify-center bg-black hover:bg-black/95 text-lime-brand hover:text-white font-bold py-3.5 rounded-xl shadow-lg transition-all active:scale-95 text-sm"
+                    title="X Community"
+                  >
+                    <XIcon className="h-5 w-5" />
                   </a>
                 </div>
               </div>

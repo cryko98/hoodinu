@@ -1,5 +1,11 @@
 import { motion } from 'motion/react';
-import { Twitter, Shield, Heart, HelpCircle, FileText } from 'lucide-react';
+import { Send, Shield, Heart, HelpCircle, FileText } from 'lucide-react';
+
+const XIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 interface FooterProps {
   contractAddress: string;
@@ -37,13 +43,22 @@ export default function Footer({ contractAddress }: FooterProps) {
 
             <div className="flex space-x-3 pt-2">
               <a 
-                href="https://twitter.com" 
+                href="https://x.com/i/communities/2038276050287993288" 
                 target="_blank" 
                 rel="noreferrer" 
-                className="w-9 h-9 rounded-full bg-robin-slate hover:bg-robin-green/10 text-gray-400 hover:text-robin-green flex items-center justify-center border border-gray-800/80 transition"
-                aria-label="Twitter link"
+                className="w-9 h-9 rounded-full bg-robin-slate hover:bg-[#c1d202]/10 text-gray-400 hover:text-[#c1d202] flex items-center justify-center border border-gray-800/80 transition"
+                aria-label="X Community link"
               >
-                <Twitter className="h-4 w-4" />
+                <XIcon className="h-4 w-4" />
+              </a>
+              <a 
+                href="https://t.me/hoodinucommunity" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="w-9 h-9 rounded-full bg-robin-slate hover:bg-[#c1d202]/10 text-gray-400 hover:text-[#c1d202] flex items-center justify-center border border-gray-800/80 transition"
+                aria-label="Telegram link"
+              >
+                <Send className="h-4 w-4" />
               </a>
             </div>
           </div>

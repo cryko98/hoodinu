@@ -58,12 +58,10 @@ export default function PortfolioSim() {
   const [isSwiping, setIsSwiping] = useState<boolean>(false);
   const [hoveredPoint, setHoveredPoint] = useState<string | null>(null);
 
-  const [chain, setChain] = useState<'solana' | 'base' | 'ethereum'>('solana');
-  const [address, setAddress] = useState<string>(
-    CONTRACT_ADDRESS && CONTRACT_ADDRESS !== 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' 
-      ? CONTRACT_ADDRESS 
-      : 'EKpQGSJtjMFqKZ9LNAnZ7Yg3rFMU1e35E4ayqMR5pump'
+  const [chain, setChain] = useState<'solana' | 'base' | 'ethereum'>(
+    CONTRACT_ADDRESS && CONTRACT_ADDRESS.startsWith('0x') ? 'ethereum' : 'solana'
   );
+  const [address, setAddress] = useState<string>(CONTRACT_ADDRESS);
   const [customAddress, setCustomAddress] = useState<string>('');
 
   // Exchange rates
@@ -214,11 +212,11 @@ export default function PortfolioSim() {
 
               {/* Quick links */}
               <div className="flex items-center space-x-2">
-                {CONTRACT_ADDRESS && CONTRACT_ADDRESS !== 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' && (
+                {CONTRACT_ADDRESS && (
                   <button
                     type="button"
                     onClick={() => {
-                      setChain('solana');
+                      setChain(CONTRACT_ADDRESS.startsWith('0x') ? 'ethereum' : 'solana');
                       setAddress(CONTRACT_ADDRESS);
                       setCustomAddress(CONTRACT_ADDRESS);
                     }}

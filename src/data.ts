@@ -1,6 +1,6 @@
 import { StoryChapter, RoadmapPhase, NewsItem } from './types';
 
-export const CONTRACT_ADDRESS = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+export const CONTRACT_ADDRESS = "0xe1483008172e03d07d692248cd4d1b22b4decccc";
 
 export const HOODINU_STORY: StoryChapter[] = [
   {

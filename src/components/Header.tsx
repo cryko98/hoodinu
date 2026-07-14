@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, Menu, X, ArrowUpRight, ShieldCheck, Heart, Github, Send } from 'lucide-react';
+import { Search, Menu, X, ArrowUpRight, ShieldCheck, Heart, Github } from 'lucide-react';
 
 const XIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -117,15 +117,6 @@ export default function Header({ onNavigate, contractAddress }: HeaderProps) {
               >
                 <XIcon className="h-4 w-4" />
               </a>
-              <a 
-                href="https://t.me/hoodinucommunity" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="w-8 h-8 rounded-full text-gray-400 hover:text-[#c1d202] hover:bg-robin-dark/50 transition flex items-center justify-center border border-gray-800"
-                title="Telegram Community"
-              >
-                <Send className="h-4 w-4" />
-              </a>
             </div>
           </div>
 
@@ -190,26 +181,16 @@ export default function Header({ onNavigate, contractAddress }: HeaderProps) {
               ))}
 
               {/* Removed Connect Wallet mobile block */}
-              <div className="pt-4 border-t border-robin-dark flex items-center justify-around">
+              <div className="pt-4 border-t border-robin-dark flex items-center justify-center">
                 <a 
                   href="https://x.com/i/communities/2038276050287993288" 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="px-4 py-2 bg-robin-dark text-gray-300 hover:text-[#c1d202] rounded-xl text-xs font-mono font-bold flex items-center space-x-2 border border-gray-800"
+                  className="px-6 py-2 bg-robin-dark text-gray-300 hover:text-[#c1d202] rounded-xl text-xs font-mono font-bold flex items-center space-x-2 border border-gray-800 w-full justify-center"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <XIcon className="h-4 w-4" />
                   <span>X Community</span>
-                </a>
-                <a 
-                  href="https://t.me/hoodinucommunity" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="px-4 py-2 bg-robin-dark text-gray-300 hover:text-[#c1d202] rounded-xl text-xs font-mono font-bold flex items-center space-x-2 border border-gray-800"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <Send className="h-4 w-4" />
-                  <span>Telegram</span>
                 </a>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Copy, Check, TrendingUp, ShieldAlert, ArrowDown, Send } from 'lucide-react';
+import { Copy, Check, TrendingUp, ShieldAlert, ArrowDown } from 'lucide-react';
 
 const XIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -107,25 +107,16 @@ export default function Hero({ contractAddress }: HeroProps) {
                 </div>
 
                 {/* Main Action CTAs */}
-                <div className="pt-2 flex gap-3">
-                  <a
-                    href="https://t.me/hoodinucommunity"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex-1 flex items-center justify-center space-x-2 bg-black hover:bg-black/95 text-lime-brand hover:text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition-all active:scale-95 text-sm"
-                    title="Telegram"
-                  >
-                    <Send className="h-4 w-4" />
-                    <span>Telegram</span>
-                  </a>
+                <div className="pt-2 flex">
                   <a
                     href="https://x.com/i/communities/2038276050287993288"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-14 flex items-center justify-center bg-black hover:bg-black/95 text-lime-brand hover:text-white font-bold py-3.5 rounded-xl shadow-lg transition-all active:scale-95 text-sm"
+                    className="w-full flex items-center justify-center space-x-2 bg-black hover:bg-black/95 text-lime-brand hover:text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition-all active:scale-95 text-sm"
                     title="X Community"
                   >
-                    <XIcon className="h-5 w-5" />
+                    <XIcon className="h-4 w-4" />
+                    <span>Join X Community</span>
                   </a>
                 </div>
               </div>

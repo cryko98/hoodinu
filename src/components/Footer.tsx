@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Send, Shield, Heart, HelpCircle, FileText } from 'lucide-react';
+import { Shield, Heart, HelpCircle, FileText } from 'lucide-react';
 
 const XIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -50,15 +50,6 @@ export default function Footer({ contractAddress }: FooterProps) {
                 aria-label="X Community link"
               >
                 <XIcon className="h-4 w-4" />
-              </a>
-              <a 
-                href="https://t.me/hoodinucommunity" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="w-9 h-9 rounded-full bg-robin-slate hover:bg-[#c1d202]/10 text-gray-400 hover:text-[#c1d202] flex items-center justify-center border border-gray-800/80 transition"
-                aria-label="Telegram link"
-              >
-                <Send className="h-4 w-4" />
               </a>
             </div>
           </div>

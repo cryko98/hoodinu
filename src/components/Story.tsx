@@ -41,7 +41,7 @@ export default function Story() {
               
               <div className="relative bg-robin-dark rounded-2xl overflow-hidden p-2">
                 <img
-                  src="https://cdn.shopify.com/s/files/1/0967/8087/8151/files/hoodinu.png?v=1783680171"
+                  src="/banner.png"
                   alt="HOODINU Stealth"
                   className="w-full h-auto aspect-[3/1] object-cover rounded-xl group-hover:scale-105 transition-transform duration-500 ease-out"
                   referrerPolicy="no-referrer"

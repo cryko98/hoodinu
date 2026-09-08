@@ -1,6 +1,6 @@
 {
   "name": "HOODINU",
-  "description": "The official website for $HOODINU - the loyal, stealthy, and unchained Robinhood memecoin.",
+  "description": "The official website for $HOODINU - the loyal, stealthy, and unchained Robinhood Chain memecoin.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

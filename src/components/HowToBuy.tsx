@@ -27,8 +27,8 @@ export default function HowToBuy({ contractAddress }: HowToBuyProps) {
     {
       id: 2,
       icon: Coins,
-      title: "Fund with SOL or ETH",
-      description: "Purchase Solana (SOL) or Ethereum (ETH) directly within the Robinhood App, then transfer it instantly into your Web3 self-custodial Robinhood Wallet, or import existing funds.",
+      title: "Fund with ETH on Robinhood Chain",
+      description: "Purchase Ethereum (ETH) directly within the Robinhood App, then bridge it onto Robinhood Chain inside your Web3 self-custodial Robinhood Wallet, or import existing funds.",
       badge: "Direct Fund"
     },
     {
@@ -51,23 +51,23 @@ export default function HowToBuy({ contractAddress }: HowToBuyProps) {
     {
       id: 1,
       icon: Smartphone,
-      title: "Get Phantom or MetaMask",
-      description: "Download Phantom (for Solana) or MetaMask (for Ethereum/L2s) as a browser extension or mobile application.",
-      badge: "Browser Ext"
+      title: "Get MetaMask or Rabby",
+      description: "Download MetaMask or Rabby as a browser extension or mobile application, then add the Robinhood Chain network to your wallet.",
+      badge: "Robinhood Chain RPC"
     },
     {
       id: 2,
       icon: Coins,
       title: "Load Up Native Assets",
-      description: "Buy SOL or ETH from your preferred exchange (or Robinhood app) and send it directly to your new web3 wallet address.",
+      description: "Buy ETH from your preferred exchange (or the Robinhood app) and bridge it to Robinhood Chain, straight into your new web3 wallet address.",
       badge: "Gas Ready"
     },
     {
       id: 3,
       icon: Repeat,
       title: "Connect to DEX",
-      description: "Navigate to Raydium.io (for SOL) or Uniswap (for ETH) and connect your wallet securely in one click.",
-      badge: "Raydium / Uniswap"
+      description: "Navigate to a Robinhood Chain DEX, confirm the network selector reads Robinhood Chain, and connect your wallet securely in one click.",
+      badge: "Robinhood Chain DEX"
     },
     {
       id: 4,
@@ -177,7 +177,7 @@ export default function HowToBuy({ contractAddress }: HowToBuyProps) {
           <div className="flex items-center space-x-4">
             <div className="relative w-12 h-12 rounded-full overflow-hidden border border-robin-green/40 bg-robin-slate flex-shrink-0">
               <img
-                src="https://cdn.shopify.com/s/files/1/0967/8087/8151/files/photo_2026-07-08_18-23-12.jpg?v=1783680170"
+                src="/hoodinu.png"
                 alt="Logo small"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"

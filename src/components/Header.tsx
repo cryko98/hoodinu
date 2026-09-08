@@ -41,7 +41,7 @@ export default function Header({ onNavigate, contractAddress }: HeaderProps) {
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => onNavigate('hero')}>
             <div className="relative w-9 h-9 rounded-full overflow-hidden border border-lime-brand/50 bg-robin-slate flex-shrink-0">
               <img 
-                src="https://cdn.shopify.com/s/files/1/0967/8087/8151/files/photo_2026-07-08_18-23-12.jpg?v=1783680170" 
+                src="/hoodinu.png" 
                 alt="HOODINU Logo" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"

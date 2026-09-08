@@ -26,7 +26,7 @@ export default function Footer({ contractAddress }: FooterProps) {
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 rounded-full overflow-hidden border border-lime-brand/30 bg-robin-slate flex-shrink-0">
                 <img 
-                  src="https://cdn.shopify.com/s/files/1/0967/8087/8151/files/photo_2026-07-08_18-23-12.jpg?v=1783680170" 
+                  src="/hoodinu.png" 
                   alt="HOODINU Logo" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"

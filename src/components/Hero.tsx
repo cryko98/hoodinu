@@ -79,7 +79,7 @@ export default function Hero({ contractAddress }: HeroProps) {
                     <span className="w-2 h-2 rounded-full bg-black mr-2 animate-ping"></span>
                     Verified Contract Address
                   </span>
-                  <span className="text-xs font-bold text-black/80 font-mono">SOLANA / ERC20 READY</span>
+                  <span className="text-xs font-bold text-black/80 font-mono">ROBINHOOD CHAIN READY</span>
                 </div>
                 
                 {/* Contract Input Copy Box */}
@@ -163,7 +163,7 @@ export default function Hero({ contractAddress }: HeroProps) {
               
               <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-black shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] mx-auto relative group-hover:scale-105 transition-transform duration-500 ease-out">
                 <img
-                  src="https://cdn.shopify.com/s/files/1/0967/8087/8151/files/photo_2026-07-08_18-23-12.jpg?v=1783680170"
+                  src="/hoodinu.png"
                   alt="HOODINU Logo"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"

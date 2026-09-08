@@ -49,25 +49,45 @@ const CHART_DATA: Record<string, { points: string; color: string; returnText: st
   }
 };
 
+// Robinhood Chain is the home chain of $HOODINU. It is an EVM chain (Arbitrum Orbit),
+// so every address here is 0x-style. Dexscreener has no dedicated `robinhood` slug yet,
+// so the embedded chart is served from its Arbitrum Orbit host chain until it lists one.
+const CHAINS = {
+  robinhood: {
+    label: 'Robinhood Chain',
+    dexSlug: 'arbitrum',
+    defaultAddress: '0x912ce59144191c1204e64559fe8253a0e49e6548' // ARB
+  },
+  base: {
+    label: 'Base',
+    dexSlug: 'base',
+    defaultAddress: '0x532f27101965dd16442e59d40670faf5ebb142e4' // BRETT
+  },
+  ethereum: {
+    label: 'Ethereum',
+    dexSlug: 'ethereum',
+    defaultAddress: '0x6982508145454ce325ddbe47a25d4ec3d2311933' // PEPE
+  }
+} as const;
+
+type ChainKey = keyof typeof CHAINS;
+
 export default function PortfolioSim() {
   const [activeTab, setActiveTab] = useState<'1D' | '1W' | '1M' | '3M' | '1Y' | 'ALL'>('1D');
-  const [purchaseAsset, setPurchaseAsset] = useState<'USD' | 'SOL' | 'ETH'>('USD');
+  const [purchaseAsset, setPurchaseAsset] = useState<'USD' | 'ETH'>('USD');
   const [purchaseAmount, setPurchaseAmount] = useState<string>('100');
   const [orderReviewing, setOrderReviewing] = useState<boolean>(false);
   const [orderCompleted, setOrderCompleted] = useState<boolean>(false);
   const [isSwiping, setIsSwiping] = useState<boolean>(false);
   const [hoveredPoint, setHoveredPoint] = useState<string | null>(null);
 
-  const [chain, setChain] = useState<'solana' | 'base' | 'ethereum'>(
-    CONTRACT_ADDRESS && CONTRACT_ADDRESS.startsWith('0x') ? 'ethereum' : 'solana'
-  );
+  const [chain, setChain] = useState<ChainKey>('robinhood');
   const [address, setAddress] = useState<string>(CONTRACT_ADDRESS);
   const [customAddress, setCustomAddress] = useState<string>('');
 
   // Exchange rates
   const conversionRates = {
     USD: 2500, // 2500 HOODINU per USD
-    SOL: 520000, // 520k HOODINU per SOL
     ETH: 8400000 // 8.4M HOODINU per ETH
   };
 
@@ -149,17 +169,15 @@ export default function PortfolioSim() {
               </div>
               
               {/* Chain Selector */}
-              <div className="flex space-x-1.5 bg-robin-dark p-1 rounded-xl border border-gray-800/80 self-start sm:self-center">
-                {(['solana', 'base', 'ethereum'] as const).map((c) => (
+              <div className="flex flex-wrap gap-1.5 bg-robin-dark p-1 rounded-xl border border-gray-800/80 self-start sm:self-center">
+                {(Object.keys(CHAINS) as ChainKey[]).map((c) => (
                   <button
                     key={c}
                     type="button"
                     onClick={() => {
                       setChain(c);
-                      // Set popular default addresses for chain swaps
-                      if (c === 'solana') setAddress('EKpQGSJtjMFqKZ9LNAnZ7Yg3rFMU1e35E4ayqMR5pump');
-                      else if (c === 'base') setAddress('0x532f27101965dd16442e59d40670faf5ebb142e4'); // BRETT
-                      else if (c === 'ethereum') setAddress('0x6982508145454ce325ddbe47a25d4ec3d2311933'); // PEPE
+                      // Swap in a reference address so the embed always has something to draw
+                      setAddress(CHAINS[c].defaultAddress);
                     }}
                     className={`px-3 py-1 rounded-lg text-[10px] font-mono uppercase font-black transition ${
                       chain === c
@@ -167,7 +185,7 @@ export default function PortfolioSim() {
                         : 'text-gray-400 hover:text-white'
                     }`}
                   >
-                    {c}
+                    {CHAINS[c].label}
                   </button>
                 ))}
               </div>
@@ -176,7 +194,7 @@ export default function PortfolioSim() {
             {/* Real Dexscreener Chart Iframe */}
             <div className="flex-1 w-full bg-robin-dark/50 rounded-2xl overflow-hidden border border-gray-800/80 relative min-h-[280px]">
               <iframe 
-                src={`https://dexscreener.com/${chain}/${address}?embed=1&theme=dark&trades=0&info=0`}
+                src={`https://dexscreener.com/${CHAINS[chain].dexSlug}/${address}?embed=1&theme=dark&trades=0&info=0`}
                 className="absolute inset-0 w-full h-full border-0"
                 title="Dexscreener Chart"
                 allow="clipboard-write"
@@ -216,7 +234,7 @@ export default function PortfolioSim() {
                   <button
                     type="button"
                     onClick={() => {
-                      setChain(CONTRACT_ADDRESS.startsWith('0x') ? 'ethereum' : 'solana');
+                      setChain('robinhood');
                       setAddress(CONTRACT_ADDRESS);
                       setCustomAddress(CONTRACT_ADDRESS);
                     }}
@@ -226,7 +244,7 @@ export default function PortfolioSim() {
                   </button>
                 )}
                 <a
-                  href={`https://dexscreener.com/${chain}/${address}`}
+                  href={`https://dexscreener.com/${CHAINS[chain].dexSlug}/${address}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-3 py-1.5 bg-robin-dark/80 hover:bg-[#c1d202]/10 text-gray-400 hover:text-[#c1d202] rounded-lg border border-gray-800/80 text-[10px] font-mono font-bold flex items-center space-x-1 transition"
@@ -390,7 +408,7 @@ export default function PortfolioSim() {
                       
                       {/* Asset selector */}
                       <div className="flex space-x-1 bg-robin-dark p-1 rounded-lg border border-gray-800">
-                        {(['USD', 'SOL', 'ETH'] as const).map((asset) => (
+                        {(['USD', 'ETH'] as const).map((asset) => (
                           <button
                             type="button"
                             key={asset}

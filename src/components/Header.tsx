@@ -127,7 +127,9 @@ export default function Header({ onNavigate, contractAddress }: HeaderProps) {
               className="px-2 py-1.5 rounded bg-robin-slate text-[10px] font-mono text-gray-300 flex items-center"
             >
               <span className="text-robin-green font-bold">
-                {isCopied ? 'Copied! ✅' : 'CA: xxxx...xxxx'}
+                {isCopied
+                  ? 'Copied! ✅'
+                  : `CA: ${contractAddress.substring(0, 6)}...${contractAddress.substring(contractAddress.length - 4)}`}
               </span>
             </button>
 

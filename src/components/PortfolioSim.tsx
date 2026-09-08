@@ -49,14 +49,13 @@ const CHART_DATA: Record<string, { points: string; color: string; returnText: st
   }
 };
 
-// Robinhood Chain is the home chain of $HOODINU. It is an EVM chain (Arbitrum Orbit),
-// so every address here is 0x-style. Dexscreener has no dedicated `robinhood` slug yet,
-// so the embedded chart is served from its Arbitrum Orbit host chain until it lists one.
+// Robinhood Chain is the home chain of $HOODINU, and Dexscreener indexes it under
+// the `robinhood` slug. Every address here is 0x-style since the chain is EVM.
 const CHAINS = {
   robinhood: {
     label: 'Robinhood Chain',
-    dexSlug: 'arbitrum',
-    defaultAddress: '0x912ce59144191c1204e64559fe8253a0e49e6548' // ARB
+    dexSlug: 'robinhood',
+    defaultAddress: CONTRACT_ADDRESS // $HOODINU trades on its home chain
   },
   base: {
     label: 'Base',
